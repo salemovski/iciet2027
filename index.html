@@ -1,0 +1,1414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ICIET 2027 – International Conference on Intelligent Electronics and Telecommunications</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0a1628;
+    --navy-mid: #132240;
+    --blue: #1a4a8a;
+    --blue-bright: #2563eb;
+    --gold: #c9992a;
+    --gold-light: #f0bc4e;
+    --cream: #f8f5ef;
+    --white: #ffffff;
+    --gray-100: #f3f4f6;
+    --gray-200: #e5e7eb;
+    --gray-400: #9ca3af;
+    --gray-600: #4b5563;
+    --gray-800: #1f2937;
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'IBM Plex Sans', sans-serif;
+    --font-mono: 'IBM Plex Mono', monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--gray-800);
+    background: var(--white);
+    line-height: 1.6;
+  }
+
+  /* ── NAV ── */
+  nav {
+    background: var(--navy);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 2px solid var(--gold);
+  }
+
+  .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    height: 60px;
+  }
+
+  .nav-logo {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--gold-light);
+    letter-spacing: 0.02em;
+    text-decoration: none;
+  }
+
+  .nav-logo span {
+    color: var(--white);
+    font-weight: 400;
+    font-size: 0.85rem;
+    display: block;
+    font-family: var(--font-body);
+    letter-spacing: 0.05em;
+    margin-top: -2px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 0;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0 1.1rem;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    transition: color 0.2s, background 0.2s;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+  }
+
+  .nav-links a:hover {
+    color: var(--gold-light);
+    border-bottom-color: var(--gold-light);
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--navy);
+    background-image:
+      radial-gradient(ellipse 80% 60% at 60% 40%, rgba(26,74,138,0.35) 0%, transparent 70%),
+      repeating-linear-gradient(0deg, transparent, transparent 79px, rgba(255,255,255,0.02) 80px),
+      repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(255,255,255,0.02) 80px);
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -120px; right: -120px;
+    width: 600px; height: 600px;
+    border: 1px solid rgba(201,153,42,0.15);
+    border-radius: 50%;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 400px; height: 400px;
+    border: 1px solid rgba(201,153,42,0.1);
+    border-radius: 50%;
+  }
+
+  .hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    width: 32px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.15;
+    max-width: 780px;
+    margin-bottom: 1.2rem;
+  }
+
+  .hero-title em {
+    color: var(--gold-light);
+    font-style: normal;
+  }
+
+  .hero-acronym {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 700;
+    color: rgba(255,255,255,0.04);
+    position: absolute;
+    top: 3rem; right: 2rem;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin: 2.5rem 0 3rem;
+  }
+
+  .hero-meta-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.7rem;
+    color: rgba(255,255,255,0.75);
+    font-size: 0.9rem;
+  }
+
+  .hero-meta-icon {
+    width: 36px;
+    height: 36px;
+    background: rgba(201,153,42,0.15);
+    border: 1px solid rgba(201,153,42,0.3);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .hero-meta-icon svg {
+    width: 16px; height: 16px;
+    fill: none;
+    stroke: var(--gold);
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .hero-meta-label {
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    font-family: var(--font-mono);
+  }
+
+  .hero-meta-value {
+    color: var(--white);
+    font-weight: 500;
+    margin-top: 1px;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    color: var(--navy);
+    padding: 0.85rem 2rem;
+    border: none;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--white);
+    padding: 0.85rem 2rem;
+    border: 1px solid rgba(255,255,255,0.3);
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .btn-outline:hover { border-color: var(--gold-light); color: var(--gold-light); }
+
+  /* ── COUNTDOWN ── */
+  .countdown-bar {
+    background: var(--navy-mid);
+    border-top: 1px solid rgba(201,153,42,0.2);
+    padding: 1.5rem 0;
+  }
+
+  .countdown-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .countdown-label {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .countdown-units {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .countdown-unit {
+    text-align: center;
+  }
+
+  .countdown-number {
+    font-family: var(--font-display);
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1;
+    display: block;
+  }
+
+  .countdown-unit-label {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gray-400);
+    margin-top: 4px;
+    display: block;
+  }
+
+  .countdown-sep {
+    font-size: 1.8rem;
+    color: rgba(201,153,42,0.4);
+    margin-top: -8px;
+    display: flex;
+    align-items: center;
+  }
+
+  /* ── SECTIONS COMMON ── */
+  section { padding: 5rem 0; }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .section-header {
+    margin-bottom: 3rem;
+  }
+
+  .section-tag {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .section-tag::before {
+    content: '';
+    width: 20px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.2;
+  }
+
+  /* ── ABOUT ── */
+  #about { background: var(--cream); }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .about-text p {
+    font-size: 1rem;
+    color: var(--gray-600);
+    margin-bottom: 1.2rem;
+    line-height: 1.8;
+  }
+
+  .about-text p strong {
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  .about-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .stat-card {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    padding: 1.5rem;
+    border-top: 3px solid var(--gold);
+  }
+
+  .stat-number {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.8rem;
+    color: var(--gray-600);
+    margin-top: 0.4rem;
+    line-height: 1.4;
+  }
+
+  /* ── TOPICS ── */
+  #topics { background: var(--white); }
+
+  .topics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--gray-200);
+    border: 1px solid var(--gray-200);
+  }
+
+  .topic-card {
+    background: var(--white);
+    padding: 1.8rem;
+    transition: background 0.2s;
+  }
+
+  .topic-card:hover { background: var(--cream); }
+
+  .topic-number {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    margin-bottom: 0.8rem;
+  }
+
+  .topic-card h4 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+  }
+
+  .topic-card p {
+    font-size: 0.82rem;
+    color: var(--gray-600);
+    line-height: 1.6;
+  }
+
+  /* ── DATES ── */
+  #dates { background: var(--navy); }
+  #dates .section-title { color: var(--white); }
+
+  .dates-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .date-item {
+    display: flex;
+    align-items: center;
+    padding: 1.4rem 2rem;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    transition: background 0.2s;
+  }
+
+  .date-item:last-child { border-bottom: none; }
+  .date-item:hover { background: rgba(255,255,255,0.04); }
+
+  .date-badge {
+    background: rgba(201,153,42,0.12);
+    border: 1px solid rgba(201,153,42,0.25);
+    color: var(--gold-light);
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 500;
+    padding: 0.4rem 1rem;
+    min-width: 160px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  .date-badge.passed {
+    background: rgba(255,255,255,0.04);
+    border-color: rgba(255,255,255,0.1);
+    color: var(--gray-400);
+    text-decoration: line-through;
+  }
+
+  .date-desc {
+    flex: 1;
+    padding: 0 2rem;
+    color: rgba(255,255,255,0.85);
+    font-size: 0.95rem;
+  }
+
+  .date-status {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .status-open { color: #4ade80; }
+  .status-upcoming { color: var(--gold-light); }
+  .status-tbd { color: var(--gray-400); }
+
+  /* ── SUBMISSION ── */
+  #submission { background: var(--cream); }
+
+  .submission-grid {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 4rem;
+  }
+
+  .submission-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .step {
+    display: flex;
+    gap: 1.5rem;
+    padding-bottom: 2rem;
+    position: relative;
+  }
+
+  .step:not(:last-child)::before {
+    content: '';
+    position: absolute;
+    left: 17px;
+    top: 40px;
+    bottom: 0;
+    width: 1px;
+    background: var(--gray-200);
+  }
+
+  .step-num {
+    width: 36px;
+    height: 36px;
+    background: var(--navy);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    flex-shrink: 0;
+  }
+
+  .step h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 0.4rem;
+  }
+
+  .step p {
+    font-size: 0.88rem;
+    color: var(--gray-600);
+    line-height: 1.7;
+  }
+
+  .submission-sidebar {
+    background: var(--navy);
+    padding: 2rem;
+    color: var(--white);
+  }
+
+  .submission-sidebar h3 {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    margin-bottom: 1.2rem;
+    color: var(--gold-light);
+  }
+
+  .format-list {
+    list-style: none;
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.8);
+    line-height: 1;
+  }
+
+  .format-list li {
+    padding: 0.7rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .format-list li:last-child { border-bottom: none; }
+
+  .format-badge {
+    background: rgba(201,153,42,0.15);
+    color: var(--gold-light);
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    padding: 0.2rem 0.6rem;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── COMMITTEES ── */
+  #committee { background: var(--white); }
+
+  .committee-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .person-card {
+    border: 1px solid var(--gray-200);
+    padding: 1.5rem;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .person-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-2px);
+  }
+
+  .person-initials {
+    width: 48px; height: 48px;
+    background: var(--navy);
+    color: var(--gold-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+  }
+
+  .person-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--navy);
+    margin-bottom: 0.2rem;
+  }
+
+  .person-role {
+    font-size: 0.75rem;
+    color: var(--gold);
+    font-family: var(--font-mono);
+    letter-spacing: 0.05em;
+    margin-bottom: 0.4rem;
+  }
+
+  .person-affiliation {
+    font-size: 0.8rem;
+    color: var(--gray-600);
+    line-height: 1.4;
+  }
+
+  /* ── VENUE ── */
+  #venue { background: var(--cream); }
+
+  .venue-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .venue-image {
+    width: 100%;
+    aspect-ratio: 16/10;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .venue-image-placeholder {
+    text-align: center;
+    color: rgba(255,255,255,0.5);
+  }
+
+  .venue-image-placeholder svg {
+    width: 64px; height: 64px;
+    fill: none;
+    stroke: rgba(255,255,255,0.3);
+    stroke-width: 1.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    margin-bottom: 0.8rem;
+  }
+
+  .venue-image-placeholder p {
+    font-size: 0.8rem;
+    font-family: var(--font-mono);
+    letter-spacing: 0.1em;
+  }
+
+  .venue-info p {
+    font-size: 0.95rem;
+    color: var(--gray-600);
+    line-height: 1.8;
+    margin-bottom: 1.2rem;
+  }
+
+  .venue-detail {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--gray-200);
+  }
+
+  .venue-detail:last-child { border-bottom: none; }
+
+  .venue-detail-icon {
+    width: 32px; height: 32px;
+    background: var(--navy);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .venue-detail-icon svg {
+    width: 15px; height: 15px;
+    fill: none;
+    stroke: var(--gold);
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .venue-detail-text {
+    font-size: 0.88rem;
+    color: var(--gray-600);
+  }
+
+  .venue-detail-text strong {
+    display: block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--gray-800);
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    margin-bottom: 2px;
+  }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--navy); }
+  #contact .section-title { color: var(--white); }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .contact-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 2rem;
+    transition: border-color 0.2s;
+  }
+
+  .contact-card:hover { border-color: rgba(201,153,42,0.4); }
+
+  .contact-icon {
+    width: 44px; height: 44px;
+    background: rgba(201,153,42,0.12);
+    border: 1px solid rgba(201,153,42,0.2);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.2rem;
+  }
+
+  .contact-icon svg {
+    width: 20px; height: 20px;
+    fill: none;
+    stroke: var(--gold);
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .contact-card h4 {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    font-family: var(--font-mono);
+    margin-bottom: 0.6rem;
+  }
+
+  .contact-card p {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.6;
+  }
+
+  .contact-card a {
+    color: var(--gold-light);
+    text-decoration: none;
+  }
+
+  .contact-card a:hover { text-decoration: underline; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #05101f;
+    border-top: 1px solid rgba(201,153,42,0.15);
+    padding: 2rem 0;
+  }
+
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-logo {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--gold-light);
+  }
+
+  .footer-text {
+    font-size: 0.78rem;
+    color: var(--gray-400);
+  }
+
+  /* ── ANNOUNCEMENT BANNER ── */
+  .banner {
+    background: var(--gold);
+    color: var(--navy);
+    text-align: center;
+    padding: 0.7rem 2rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+  }
+
+  .banner a {
+    color: var(--navy);
+    text-decoration: underline;
+    font-weight: 700;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .about-grid, .submission-grid, .venue-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .topics-grid { grid-template-columns: 1fr 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .hero-acronym { display: none; }
+    .hero-content { padding: 3rem 1.5rem; }
+    section { padding: 3rem 0; }
+    .date-item { flex-wrap: wrap; gap: 0.8rem; }
+    .about-stats { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Banner -->
+<div class="banner">
+  📢 Paper submission portal opening soon — <a href="#submission">Learn more about submission guidelines</a>
+</div>
+
+<!-- Navigation -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      ICIET 2027
+      <span>Bordj Bou Arreridj · Algeria · Oct 26–27</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#topics">Topics</a></li>
+      <li><a href="#dates">Dates</a></li>
+      <li><a href="#submission">Submission</a></li>
+      <li><a href="#committee">Committee</a></li>
+      <li><a href="#venue">Venue</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-acronym">ICIET</div>
+    <div class="hero-eyebrow">International Conference · 2027</div>
+    <h1 class="hero-title">
+      International Conference on<br>
+      <em>Intelligent Electronics</em><br>
+      and Telecommunications
+    </h1>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <div class="hero-meta-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
+        <div>
+          <div class="hero-meta-label">Date</div>
+          <div class="hero-meta-value">October 26–27, 2027</div>
+        </div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="hero-meta-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div>
+          <div class="hero-meta-label">Venue</div>
+          <div class="hero-meta-value">University of Bordj Bou Arreridj, Algeria</div>
+        </div>
+      </div>
+      <div class="hero-meta-item">
+        <div class="hero-meta-icon">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        </div>
+        <div>
+          <div class="hero-meta-label">Proceedings</div>
+          <div class="hero-meta-value">Indexed · Open Access</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-actions">
+      <a href="#submission" class="btn-primary">Submit Paper ↗</a>
+      <a href="#about" class="btn-outline">Learn More</a>
+    </div>
+  </div>
+</section>
+
+<!-- Countdown -->
+<div class="countdown-bar">
+  <div class="countdown-inner">
+    <div class="countdown-label">Conference starts in</div>
+    <div class="countdown-units">
+      <div class="countdown-unit">
+        <span class="countdown-number" id="cd-days">–</span>
+        <span class="countdown-unit-label">days</span>
+      </div>
+      <div class="countdown-sep">:</div>
+      <div class="countdown-unit">
+        <span class="countdown-number" id="cd-hours">–</span>
+        <span class="countdown-unit-label">hours</span>
+      </div>
+      <div class="countdown-sep">:</div>
+      <div class="countdown-unit">
+        <span class="countdown-number" id="cd-mins">–</span>
+        <span class="countdown-unit-label">minutes</span>
+      </div>
+      <div class="countdown-sep">:</div>
+      <div class="countdown-unit">
+        <span class="countdown-number" id="cd-secs">–</span>
+        <span class="countdown-unit-label">seconds</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- About -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text">
+        <div class="section-header">
+          <div class="section-tag">About ICIET 2027</div>
+          <h2 class="section-title">Where Intelligence Meets Connectivity</h2>
+        </div>
+        <p>The <strong>International Conference on Intelligent Electronics and Telecommunications (ICIET 2027)</strong> is a premier international forum for researchers, engineers, and practitioners working at the intersection of intelligent electronics, signal processing, and next-generation telecommunications.</p>
+        <p>Hosted by the <strong>University of Bordj Bou Arreridj</strong> in Algeria, ICIET 2027 brings together leading experts from academia and industry to share breakthrough research, exchange ideas, and chart the future of smart electronic systems and communication networks.</p>
+        <p>The conference will feature peer-reviewed paper presentations, invited keynote lectures, special sessions, and workshops covering the most critical challenges and opportunities in intelligent electronics and telecommunications today.</p>
+        <a href="#submission" class="btn-primary" style="margin-top:1rem; display:inline-flex;">Submit Your Work →</a>
+      </div>
+      <div class="about-stats">
+        <div class="stat-card">
+          <div class="stat-number">2</div>
+          <div class="stat-label">Days of cutting-edge research presentations</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">12+</div>
+          <div class="stat-label">Technical tracks and topic areas</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">Oct<br><span style="font-size:1.2rem">26–27</span></div>
+          <div class="stat-label">Conference dates, Bordj Bou Arreridj</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">∞</div>
+          <div class="stat-label">Networking opportunities with global researchers</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Topics -->
+<section id="topics">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Call for Papers</div>
+      <h2 class="section-title">Topics of Interest</h2>
+    </div>
+    <p style="color:var(--gray-600); margin-bottom:2rem; max-width:600px;">Authors are invited to submit original, unpublished research in — but not limited to — the following areas:</p>
+    <div class="topics-grid">
+      <div class="topic-card">
+        <div class="topic-number">T01</div>
+        <h4>Artificial Intelligence & Machine Learning in Electronics</h4>
+        <p>Deep learning, neural networks, AI-driven circuit design and optimization.</p>
+      </div>
+      <div class="topic-card">
+        <div class="topic-number">T02</div>
+        <h4>5G/6G and Next-Generation Wireless Networks</h4>
+        <p>Massive MIMO, mmWave, network slicing, and beyond-5G architectures.</p>
+      </div>
+      <div class="topic-card">
+        <div class="topic-number">T03</div>
+        <h4>Internet of Things (IoT) and Embedded Systems</h4>
+        <p>Edge computing, sensor networks, energy-efficient IoT protocols.</p>
+      </div>
+      <div class="topic-card">
+        <div class="topic-number">T04</div>
+        <h4>Signal Processing and Communications</h4>
+        <p>Digital signal processing, OFDM, channel estimation, coding techniques.</p>
+      </div>
+      <div class="topic-card">
+        <div class="topic-number">T05</div>
+        <h4>Antenna Design and Microwave Engineering</h4>
+        <p>Reconfigurable antennas, phased arrays, metamaterials, RF circuits.</p>
+      </div>
+      <div class="topic-card">
+        <div class="topic-number">T06</div>
+        <h4>Cybersecurity in Telecommunications</h4>
+        <p>Network security, intrusion detection, cryptographic protocols for communications.</p>
+      </div>
+      <div class="topic-card">
+        <div class="topic-number">T07</div>
+        <h4>Power Electronics and Energy Harvesting</h4>
+        <p>Smart grids, renewable energy systems, wireless power transfer.</p>
+      </div>
+      <div class="topic-card">
+        <div class="topic-number">T08</div>
+        <h4>Computer Vision and Image Processing</h4>
+        <p>Object detection, medical imaging, intelligent surveillance systems.</p>
+      </div>
+      <div class="topic-card">
+        <div class="topic-number">T09</div>
+        <h4>Optical Communications and Photonics</h4>
+        <p>Fiber optic systems, visible light communication, integrated photonics.</p>
+      </div>
+      <div class="topic-card">
+        <div class="topic-number">T10</div>
+        <h4>VLSI Design and Nanoelectronics</h4>
+        <p>Chip design, low-power architectures, nanoscale fabrication technologies.</p>
+      </div>
+      <div class="topic-card">
+        <div class="topic-number">T11</div>
+        <h4>Robotics and Autonomous Systems</h4>
+        <p>Control systems, autonomous vehicles, human-robot interaction.</p>
+      </div>
+      <div class="topic-card">
+        <div class="topic-number">T12</div>
+        <h4>Smart Cities and Intelligent Transportation</h4>
+        <p>V2X communications, smart infrastructure, intelligent mobility systems.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Important Dates -->
+<section id="dates">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Timeline</div>
+      <h2 class="section-title">Important Dates</h2>
+    </div>
+    <div class="dates-list">
+      <div class="date-item">
+        <div class="date-badge">1 March 2027</div>
+        <div class="date-desc">Paper Submission Portal Opens</div>
+        <div class="date-status status-upcoming">Upcoming</div>
+      </div>
+      <div class="date-item">
+        <div class="date-badge">30 June 2027</div>
+        <div class="date-desc">Full Paper Submission Deadline</div>
+        <div class="date-status status-upcoming">Upcoming</div>
+      </div>
+      <div class="date-item">
+        <div class="date-badge">15 August 2027</div>
+        <div class="date-desc">Notification of Acceptance</div>
+        <div class="date-status status-tbd">TBD</div>
+      </div>
+      <div class="date-item">
+        <div class="date-badge">15 September 2027</div>
+        <div class="date-desc">Camera-Ready Paper Submission</div>
+        <div class="date-status status-tbd">TBD</div>
+      </div>
+      <div class="date-item">
+        <div class="date-badge">1 October 2027</div>
+        <div class="date-desc">Early Bird Registration Deadline</div>
+        <div class="date-status status-tbd">TBD</div>
+      </div>
+      <div class="date-item">
+        <div class="date-badge">26–27 Oct 2027</div>
+        <div class="date-desc">ICIET 2027 Conference</div>
+        <div class="date-status status-upcoming">Conference</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Submission -->
+<section id="submission">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Authors</div>
+      <h2 class="section-title">Paper Submission</h2>
+    </div>
+    <div class="submission-grid">
+      <div>
+        <div class="submission-steps">
+          <div class="step">
+            <div class="step-num">01</div>
+            <div>
+              <h4>Prepare Your Manuscript</h4>
+              <p>Format your paper using the IEEE conference template (A4 or US Letter). Papers must be written in English and should represent original, unpublished work not currently under review elsewhere.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">02</div>
+            <div>
+              <h4>Check Paper Length</h4>
+              <p>Regular papers should be 5–6 pages. Extended papers up to 8 pages are accepted with an additional fee. Short papers (2–4 pages) are welcome for work-in-progress contributions.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">03</div>
+            <div>
+              <h4>Blind Review Compliance</h4>
+              <p>Submissions undergo double-blind peer review. Remove all author information and acknowledgments from your initial submission. Author details are included only in the final camera-ready version.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">04</div>
+            <div>
+              <h4>Submit via the Portal</h4>
+              <p>Upload your PDF through the official submission system (EasyChair / EDAS — link to be announced). You will receive a confirmation email upon successful submission.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">05</div>
+            <div>
+              <h4>Registration & Presentation</h4>
+              <p>At least one author of each accepted paper must register and present the paper at the conference. Papers without a registered author will be removed from the proceedings.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="submission-sidebar">
+          <h3>Paper Formats</h3>
+          <ul class="format-list">
+            <li>Regular Paper <span class="format-badge">5–6 pages</span></li>
+            <li>Extended Paper <span class="format-badge">up to 8 pages</span></li>
+            <li>Short / WIP Paper <span class="format-badge">2–4 pages</span></li>
+            <li>Invited Session Paper <span class="format-badge">6 pages</span></li>
+          </ul>
+          <div style="margin-top:1.5rem; padding-top:1.5rem; border-top:1px solid rgba(255,255,255,0.1);">
+            <h3>Template</h3>
+            <p style="font-size:0.85rem; color:rgba(255,255,255,0.7); margin-bottom:1rem;">Use the official IEEE two-column conference template.</p>
+            <a href="https://www.ieee.org/conferences/publishing/templates.html" target="_blank" class="btn-primary" style="font-size:0.78rem; padding:0.7rem 1.2rem;">Download IEEE Template ↗</a>
+          </div>
+          <div style="margin-top:1.5rem; padding-top:1.5rem; border-top:1px solid rgba(255,255,255,0.1);">
+            <h3>Review Process</h3>
+            <p style="font-size:0.85rem; color:rgba(255,255,255,0.7);">All submissions undergo rigorous <strong style="color:var(--gold-light)">double-blind peer review</strong> by at least three independent reviewers from the Technical Program Committee.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Committee -->
+<section id="committee">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Organization</div>
+      <h2 class="section-title">Organizing Committee</h2>
+    </div>
+    <div class="committee-grid">
+      <div class="person-card">
+        <div class="person-initials">GC</div>
+        <div class="person-role">General Chair</div>
+        <div class="person-name">To Be Announced</div>
+        <div class="person-affiliation">University of Bordj Bou Arreridj, Algeria</div>
+      </div>
+      <div class="person-card">
+        <div class="person-initials">TPC</div>
+        <div class="person-role">TPC Chair</div>
+        <div class="person-name">To Be Announced</div>
+        <div class="person-affiliation">University of Bordj Bou Arreridj, Algeria</div>
+      </div>
+      <div class="person-card">
+        <div class="person-initials">PC</div>
+        <div class="person-role">Publicity Chair</div>
+        <div class="person-name">To Be Announced</div>
+        <div class="person-affiliation">Algeria</div>
+      </div>
+      <div class="person-card">
+        <div class="person-initials">FC</div>
+        <div class="person-role">Finance Chair</div>
+        <div class="person-name">To Be Announced</div>
+        <div class="person-affiliation">Algeria</div>
+      </div>
+      <div class="person-card">
+        <div class="person-initials">LC</div>
+        <div class="person-role">Local Arrangements Chair</div>
+        <div class="person-name">To Be Announced</div>
+        <div class="person-affiliation">University of Bordj Bou Arreridj, Algeria</div>
+      </div>
+      <div class="person-card">
+        <div class="person-initials">WC</div>
+        <div class="person-role">Workshop Chair</div>
+        <div class="person-name">To Be Announced</div>
+        <div class="person-affiliation">Algeria</div>
+      </div>
+    </div>
+    <p style="font-size:0.85rem; color:var(--gray-400); margin-top:2rem;">Technical Program Committee members to be announced. Interested in joining the TPC? <a href="#contact" style="color:var(--blue-bright);">Contact us</a>.</p>
+  </div>
+</section>
+
+<!-- Venue -->
+<section id="venue">
+  <div class="container">
+    <div class="venue-grid">
+      <div>
+        <div class="section-header">
+          <div class="section-tag">Location</div>
+          <h2 class="section-title">Conference Venue</h2>
+        </div>
+        <div class="venue-image">
+          <div class="venue-image-placeholder">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            <p>University of BBA</p>
+          </div>
+        </div>
+      </div>
+      <div class="venue-info" style="padding-top:6rem;">
+        <p>ICIET 2027 will be held at the <strong>University of Bordj Bou Arreridj</strong>, located in Bordj Bou Arreridj, Algeria. The university is one of the leading higher education institutions in northeastern Algeria, offering modern conference facilities and a vibrant academic environment.</p>
+        <p>Bordj Bou Arreridj (BBA) is a city in northeastern Algeria, accessible by road and rail, situated in a fertile highland region. It is approximately 230 km from Algiers.</p>
+        <div style="margin-top:1.5rem;">
+          <div class="venue-detail">
+            <div class="venue-detail-icon">
+              <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="venue-detail-text">
+              <strong>Address</strong>
+              University of Bordj Bou Arreridj, BBA 34000, Algeria
+            </div>
+          </div>
+          <div class="venue-detail">
+            <div class="venue-detail-icon">
+              <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div class="venue-detail-text">
+              <strong>Nearest Airport</strong>
+              Ain Arnat Airport (Sétif) — ~80 km · Mohamed Boudiaf Airport (Constantine) — ~130 km
+            </div>
+          </div>
+          <div class="venue-detail">
+            <div class="venue-detail-icon">
+              <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            </div>
+            <div class="venue-detail-text">
+              <strong>Travel Info</strong>
+              Hotel recommendations and local travel guide to be published closer to the conference date.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Get in Touch</div>
+      <h2 class="section-title">Contact</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <h4>General Inquiries</h4>
+        <p>For general conference information:<br><a href="mailto:iciet2027@univ-bba.dz">iciet2027@univ-bba.dz</a></p>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </div>
+        <h4>Paper Submission</h4>
+        <p>For submission questions:<br><a href="mailto:papers.iciet2027@univ-bba.dz">papers.iciet2027@univ-bba.dz</a></p>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <h4>Venue & Local Info</h4>
+        <p>University of Bordj Bou Arreridj<br>BBA 34000, Algeria<br><a href="https://www.univ-bba.dz" target="_blank">www.univ-bba.dz</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">ICIET 2027</div>
+    <div class="footer-text">
+      © 2027 International Conference on Intelligent Electronics and Telecommunications · University of Bordj Bou Arreridj, Algeria
+    </div>
+    <div class="footer-text">October 26–27, 2027</div>
+  </div>
+</footer>
+
+<script>
+  // Countdown to Oct 26 2027
+  function updateCountdown() {
+    const target = new Date('2027-10-26T08:00:00').getTime();
+    const now = new Date().getTime();
+    const diff = target - now;
+    if (diff <= 0) {
+      document.getElementById('cd-days').textContent = '0';
+      document.getElementById('cd-hours').textContent = '00';
+      document.getElementById('cd-mins').textContent = '00';
+      document.getElementById('cd-secs').textContent = '00';
+      return;
+    }
+    const days = Math.floor(diff / 86400000);
+    const hours = Math.floor((diff % 86400000) / 3600000);
+    const mins = Math.floor((diff % 3600000) / 60000);
+    const secs = Math.floor((diff % 60000) / 1000);
+    document.getElementById('cd-days').textContent = days;
+    document.getElementById('cd-hours').textContent = String(hours).padStart(2,'0');
+    document.getElementById('cd-mins').textContent = String(mins).padStart(2,'0');
+    document.getElementById('cd-secs').textContent = String(secs).padStart(2,'0');
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+</body>
+</html>
