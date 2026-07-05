@@ -78,6 +78,33 @@
     margin-top: -2px;
   }
 
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 4px;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  .nav-toggle span {
+    display: block;
+    width: 18px;
+    height: 2px;
+    background: var(--white);
+    margin: 0 auto;
+    transition: transform 0.2s, opacity 0.2s;
+  }
+
+  .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-toggle.open span:nth-child(2) { opacity: 0; }
+  .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
   .nav-links {
     display: flex;
     gap: 0;
@@ -87,11 +114,11 @@
   .nav-links a {
     color: rgba(255,255,255,0.8);
     text-decoration: none;
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     font-weight: 500;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
-    padding: 0 0.85rem;
+    padding: 0 0.7rem;
     height: 60px;
     display: flex;
     align-items: center;
@@ -146,13 +173,31 @@
     z-index: 2;
   }
 
+  .hero-brand {
+    display: flex;
+    align-items: center;
+    gap: 1.75rem;
+    margin-bottom: 2.25rem;
+  }
+
+  .hero-brand-logo {
+    width: 92px;
+    height: 92px;
+    flex-shrink: 0;
+    object-fit: contain;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 14px;
+    padding: 10px;
+  }
+
   .hero-eyebrow {
     font-family: var(--font-mono);
     font-size: 0.7rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--gold);
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.7rem;
     display: flex;
     align-items: center;
     gap: 0.8rem;
@@ -165,28 +210,32 @@
     background: var(--gold);
   }
 
-  .hero-title {
+  .hero-acronym-title {
     font-family: var(--font-display);
-    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-size: clamp(2.4rem, 5.5vw, 4.2rem);
     font-weight: 700;
     color: var(--white);
-    line-height: 1.15;
-    max-width: 780px;
-    margin-bottom: 1.2rem;
+    line-height: 1;
+    letter-spacing: -0.01em;
   }
 
-  .hero-title em {
-    color: var(--gold-light);
-    font-style: normal;
+  .hero-full-title {
+    font-family: var(--font-body);
+    font-size: clamp(1rem, 1.6vw, 1.25rem);
+    font-weight: 400;
+    color: rgba(255,255,255,0.72);
+    margin-top: 0.5rem;
+    max-width: 620px;
+    line-height: 1.5;
   }
 
   .hero-acronym {
     font-family: var(--font-display);
     font-size: clamp(3rem, 8vw, 6rem);
     font-weight: 700;
-    color: rgba(255,255,255,0.04);
+    color: rgba(255,255,255,0.035);
     position: absolute;
-    top: 3rem; right: 2rem;
+    top: 1.5rem; right: 2rem;
     letter-spacing: -0.02em;
     line-height: 1;
     pointer-events: none;
@@ -1015,11 +1064,33 @@
   }
 
   /* ── RESPONSIVE ── */
-  @media (max-width: 900px) {
-    .nav-links { display: none; }
+  @media (max-width: 1024px) {
+    .about-grid { gap: 3rem; }
+    .submission-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .venue-grid { gap: 2.5rem; }
+    .topics-grid { grid-template-columns: repeat(2, 1fr); }
+    .contact-grid { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
   }
+
+  @media (max-width: 900px) {
+    .nav-links {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 60px; left: 0; right: 0;
+      background: var(--navy);
+      border-bottom: 2px solid var(--teal);
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.25s ease;
+    }
+    .nav-links.open { max-height: 80vh; overflow-y: auto; }
+    .nav-links a { height: auto; padding: 0.9rem 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .nav-toggle { display: flex; }
+  }
+
   @media (max-width: 768px) {
-    .about-grid, .submission-grid, .venue-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .about-grid, .venue-grid { grid-template-columns: 1fr; gap: 2rem; }
     .topics-grid { grid-template-columns: 1fr 1fr; }
     .contact-grid { grid-template-columns: 1fr; }
     .hero-acronym { display: none; }
@@ -1031,26 +1102,31 @@
     .tpc-table th, .tpc-table td { padding: 0.5rem 0.6rem; }
   }
 
+  @media (max-width: 480px) {
+    .countdown-inner { gap: 1rem; }
+    .countdown-units { gap: 0.6rem; }
+    .countdown-number { font-size: 1.5rem; }
+    .date-badge { min-width: 130px; font-size: 0.7rem; }
+  }
+
+  @media (max-width: 560px) {
+    .topics-grid { grid-template-columns: 1fr; }
+    .about-stats { grid-template-columns: 1fr; }
+    .hero-brand { align-items: flex-start; }
+    .registration-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
+    .name-fields-grid { grid-template-columns: 1fr !important; }
+  }
+
 /* ===== ICIET Logo ===== */
 .logo-img{
-    height:55px;
+    height:42px;
     width:auto;
     display:block;
 }
-.hero-logo{
-    text-align:center;
-    margin-bottom:2rem;
-}
-.hero-logo img{
-    max-width:280px;
-    width:100%;
-    height:auto;
-    display:block;
-    margin:0 auto;
-}
 @media (max-width:768px){
-    .logo-img{height:42px;}
-    .hero-logo img{max-width:180px;}
+    .logo-img{height:36px;}
+    .hero-brand{gap:1.1rem; margin-bottom:1.5rem;}
+    .hero-brand-logo{width:64px; height:64px; padding:7px;}
 }
 
 </style>
@@ -1072,39 +1148,37 @@
         <span>International Conference</span>
     </div>
 </a>
-    <ul class="nav-links">
+    <ul class="nav-links" id="navLinks">
       <li><a href="#about">About</a></li>
       <li><a href="#topics">Topics</a></li>
       <li><a href="#dates">Dates</a></li>
       <li><a href="#submission">Submission</a></li>
-      <li><a href="#committee">Organizing</a></li>
-      <li><a href="#ieee-tc">IEEE Committee</a></li>
-      <li><a href="#tpc">Scientific Committee</a></li>
+      <li><a href="#committee">Committees</a></li>
       <li><a href="#venue">Venue</a></li>
-      <li><a href="#sponsorship">IEEE Sponsorship</a></li>
+      <li><a href="#sponsorship">Sponsorship</a></li>
       <li><a href="#contact">Contact</a></li>
       <li><a href="#registration" style="color:var(--teal-light);border-bottom-color:var(--teal-light);">Registration</a></li>
     </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
 
 <!-- Hero -->
 <section class="hero">
   <div class="hero-content">
-    <div class="hero-logo">
-        <img src="logo_sans.png" alt="ICIET 2027">
-    </div>
     <div class="hero-acronym">ICIET</div>
-    <div style="display:flex;align-items:center;gap:3rem;flex-wrap:wrap;margin-bottom:2rem;">
-      <div style="flex:1;min-width:280px;">
+
+    <div class="hero-brand">
+      <img src="logo_sans.png" alt="ICIET 2027 logo" class="hero-brand-logo">
+      <div>
         <div class="hero-eyebrow">International Conference · 2027</div>
-        <h1 class="hero-title">
-          International Conference on<br>
-          <em>Intelligent Electronics</em><br>
-          and Telecommunications
-        </h1>
+        <h1 class="hero-acronym-title">ICIET 2027</h1>
+        <p class="hero-full-title">International Conference on Intelligent Electronics and Telecommunications</p>
       </div>
     </div>
+
     <div class="hero-meta">
       <div class="hero-meta-item">
         <div class="hero-meta-icon">
@@ -1811,13 +1885,13 @@
       <div class="section-tag" style="color:var(--teal);">Registration</div>
       <h2 class="section-title" style="color:var(--white);">Registration</h2>
     </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;">
+    <div class="registration-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;">
       <div>
         <h3 style="font-family:var(--font-display);font-size:1.4rem;color:var(--white);margin-bottom:1rem;">Registration Update Request Form</h3>
         <p style="color:rgba(255,255,255,0.75);line-height:1.8;margin-bottom:1rem;">Registration will open in the coming months. Would you like to be notified when the registration is open?</p>
         <p style="color:rgba(255,255,255,0.75);line-height:1.8;margin-bottom:2rem;">Please submit your email address below and we'll notify you when the registration is live.</p>
         <div style="background:rgba(0,188,212,0.08);border:1px solid rgba(0,188,212,0.2);border-radius:8px;padding:2rem;">
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-bottom:1.2rem;">
+          <div class="name-fields-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-bottom:1.2rem;">
             <div>
               <label style="display:block;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--teal);font-family:var(--font-mono);margin-bottom:0.5rem;">* First Name</label>
               <input type="text" placeholder="First Name" style="width:100%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);border-radius:4px;padding:0.7rem 1rem;color:var(--white);font-family:var(--font-body);font-size:0.9rem;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='rgba(0,188,212,0.6)'" onblur="this.style.borderColor='rgba(255,255,255,0.15)'">
@@ -1917,6 +1991,24 @@ function handleRegNotify(btn) {
   }
   updateCountdown();
   setInterval(updateCountdown, 1000);
+
+  // Mobile nav toggle
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  if (navToggle && navLinks) {
+    navToggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      navToggle.classList.toggle('open', isOpen);
+      navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+    navLinks.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        navToggle.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
 
   // Smooth scroll
   document.querySelectorAll('a[href^="#"]').forEach(a => {
