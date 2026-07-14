@@ -954,6 +954,47 @@
   .sponsor-card h4 { color: var(--white); font-size: 0.95rem; margin-bottom: 0.5rem; }
   .sponsor-card p { color: rgba(255,255,255,0.65); font-size: 0.85rem; line-height: 1.6; }
 
+  /* ── SPONSORS & PARTNERS ── */
+  #sponsors { background: var(--white); }
+
+  .sponsors-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-top: 1rem;
+  }
+
+  .sponsor-logo-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 2rem 1.5rem;
+    border: 1px solid var(--gray-200);
+    border-radius: 6px;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .sponsor-logo-card:hover {
+    border-color: var(--orange);
+    transform: translateY(-2px);
+  }
+
+  .sponsor-logo-card img {
+    height: 80px;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+  }
+
+  .sponsor-logo-label {
+    font-size: 0.82rem;
+    text-align: center;
+    color: var(--gray-600);
+    line-height: 1.4;
+  }
+
   /* ── CONTACT ── */
   #contact { background: var(--navy); }
   #contact .section-title { color: var(--white); }
@@ -1070,6 +1111,7 @@
     .venue-grid { gap: 2.5rem; }
     .topics-grid { grid-template-columns: repeat(2, 1fr); }
     .contact-grid { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .sponsors-grid { grid-template-columns: repeat(2, 1fr); }
   }
 
   @media (max-width: 900px) {
@@ -1093,6 +1135,7 @@
     .about-grid, .venue-grid { grid-template-columns: 1fr; gap: 2rem; }
     .topics-grid { grid-template-columns: 1fr 1fr; }
     .contact-grid { grid-template-columns: 1fr; }
+    .sponsors-grid { grid-template-columns: 1fr 1fr; }
     .hero-acronym { display: none; }
     .hero-content { padding: 3rem 1.5rem; }
     section { padding: 3rem 0; }
@@ -1156,6 +1199,7 @@
       <li><a href="#committee">Committees</a></li>
       <li><a href="#venue">Venue</a></li>
       <li><a href="#sponsorship">Sponsorship</a></li>
+      <li><a href="#sponsors">Sponsors</a></li>
       <li><a href="#contact">Contact</a></li>
       <li><a href="#registration" style="color:var(--teal-light);border-bottom-color:var(--teal-light);">Registration</a></li>
     </ul>
@@ -1555,18 +1599,19 @@
     <table class="tpc-table">
       <thead><tr><th>#</th><th>Name</th><th>Affiliation</th></tr></thead>
       <tbody>
-        <tr><td>1</td><td>Dr. KOUZOU Abdellah</td><td>University of Djelfa, Algeria</td></tr>
-        <tr><td>2</td><td>Dr. IRATNI Abdelhamid</td><td>University of Bordj Bou Arreridj, Algeria</td></tr>
-        <tr><td>3</td><td>Dr. HIMEUR Yassine</td><td>University of Dubai, UAE</td></tr>
-        <tr><td>4</td><td>Dr. HAFAIFA Ahmed</td><td>University of Djelfa, Algeria</td></tr>
-        <tr><td>5</td><td>Dr. ELOTTRI Ahmed</td><td>University of Djelfa, Algeria</td></tr>
-        <tr><td>6</td><td>Dr. TAMERSIT Khalil</td><td>National School of Nanoscience and Nanotechnology, Algeria</td></tr>
-        <tr><td>7</td><td>Dr. DJEDDAOUI Naas</td><td>University of Djelfa, Algeria</td></tr>
-        <tr><td>8</td><td>Dr. SOUIER Mehdi</td><td>University of Tlemcen, Algeria</td></tr>
-        <tr><td>9</td><td>Dr. DERDOUR Makhlouf</td><td>Oum el Bouaghi University, Algeria</td></tr>
-        <tr><td>10</td><td>Dr. BENADDA Belkacem</td><td>University of Tlemcen, Algeria</td></tr>
-        <tr><td>11</td><td>Dr. DELLA Mohamed</td><td>UST-ORAN University, Algeria</td></tr>
-        <tr><td>12</td><td>Dr. BENGUEDDOUDJ Abdallah</td><td>University of Bordj Bou Arreridj, Algeria</td></tr>
+        <tr><td>1</td><td>Dr. ATTALLAH Bilal</td><td>University of Msila, Algeria</td></tr>
+        <tr><td>2</td><td>Dr. KOUZOU Abdellah</td><td>University of Djelfa, Algeria</td></tr>
+        <tr><td>3</td><td>Dr. IRATNI Abdelhamid</td><td>University of Bordj Bou Arreridj, Algeria</td></tr>
+        <tr><td>4</td><td>Dr. HIMEUR Yassine</td><td>University of Dubai, UAE</td></tr>
+        <tr><td>5</td><td>Dr. HAFAIFA Ahmed</td><td>University of Djelfa, Algeria</td></tr>
+        <tr><td>6</td><td>Dr. ELOTTRI Ahmed</td><td>University of Djelfa, Algeria</td></tr>
+        <tr><td>7</td><td>Dr. TAMERSIT Khalil</td><td>National School of Nanoscience and Nanotechnology, Algeria</td></tr>
+        <tr><td>8</td><td>Dr. DJEDDAOUI Naas</td><td>University of Djelfa, Algeria</td></tr>
+        <tr><td>9</td><td>Dr. SOUIER Mehdi</td><td>University of Tlemcen, Algeria</td></tr>
+        <tr><td>10</td><td>Dr. DERDOUR Makhlouf</td><td>Oum el Bouaghi University, Algeria</td></tr>
+        <tr><td>11</td><td>Dr. BENADDA Belkacem</td><td>University of Tlemcen, Algeria</td></tr>
+        <tr><td>12</td><td>Dr. DELLA Mohamed</td><td>UST-ORAN University, Algeria</td></tr>
+        <tr><td>13</td><td>Dr. BENGUEDDOUDJ Abdallah</td><td>University of Bordj Bou Arreridj, Algeria</td></tr>
       </tbody>
     </table>
   </div>
@@ -1675,7 +1720,7 @@
     </table>
 
     <div class="tpc-note">
-      <strong>Note for IEEE Algeria Section review:</strong> the Technical Program Committee brings together reviewers from partner Algerian and international universities to broaden topical coverage. In accordance with IEEE Algeria Section requirements, the organizing team has identified <strong>12 active IEEE members</strong> within this committee (see IEEE Technical Committee above), meeting the minimum requirement of 10, and is engaging <strong>two IEEE Chapters affiliated with the IEEE Algeria Section</strong> as technical co-sponsors, each contributing reviewers to the TPC.
+      <strong>Note for IEEE Algeria Section review:</strong> the Technical Program Committee brings together reviewers from partner Algerian and international universities to broaden topical coverage. In accordance with IEEE Algeria Section requirements, the organizing team has identified <strong>13 active IEEE members</strong> within this committee (see IEEE Technical Committee above), meeting the minimum requirement of 10, and is engaging <strong>two IEEE Chapters affiliated with the IEEE Algeria Section</strong> as technical co-sponsors, each contributing reviewers to the TPC.
     </div>
   </div>
 </section>
@@ -1762,9 +1807,9 @@
         <p>"Accepted papers will be submitted for possible inclusion in IEEE Xplore, subject to meeting IEEE Xplore's scope and quality requirements." — published in the About and Submission sections.</p>
       </div>
       <div class="sponsor-card">
-        <span class="status status-done">Met — 12 identified</span>
+        <span class="status status-done">Met — 13 identified</span>
         <h4>TPC — 10+ Active IEEE Members</h4>
-        <p>12 IEEE members confirmed on the IEEE Technical Committee, including Dr. Kouzou Abdellah (Univ. Djelfa), Dr. Iratni Abdelhamid (Univ. Bordj Bou Arreridj), Dr. Himeur Yassine (Univ. Dubai) and colleagues from partner Algerian and international institutions — meeting the IEEE Algeria Section's minimum requirement.</p>
+        <p>13 IEEE members confirmed on the IEEE Technical Committee, including Dr. Attallah Bilal (Univ. Msila), Dr. Kouzou Abdellah (Univ. Djelfa), Dr. Iratni Abdelhamid (Univ. Bordj Bou Arreridj) and colleagues from partner Algerian and international institutions — meeting the IEEE Algeria Section's minimum requirement.</p>
       </div>
       <div class="sponsor-card">
         <span class="status status-inprogress">In progress</span>
@@ -1790,6 +1835,34 @@
         <span class="status status-planned">Planned</span>
         <h4>Financial Transparency & Reporting</h4>
         <p>Financial processes aligned with IEEE policy; a final conference report (technical, attendance, financial) will be submitted after the event.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sponsors & Partners -->
+<section id="sponsors">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Institutional Support</div>
+      <h2 class="section-title">Sponsors &amp; Partners</h2>
+    </div>
+    <div class="sponsors-grid">
+      <div class="sponsor-logo-card">
+        <img src="Université_de_Bordj_Bou_Arreridj.png" alt="University of Bordj Bou Arreridj">
+        <div class="sponsor-logo-label">University of Bordj Bou Arreridj</div>
+      </div>
+      <div class="sponsor-logo-card">
+        <img src="ieee_algeria1.png" alt="IEEE Algeria Section">
+        <div class="sponsor-logo-label">IEEE Algeria Section</div>
+      </div>
+      <div class="sponsor-logo-card">
+        <img src="iet_logo.png" alt="Institute of Electronics and Telecommunications">
+        <div class="sponsor-logo-label">Institute of Electronics &amp; Telecommunications</div>
+      </div>
+      <div class="sponsor-logo-card">
+        <img src="ETA.png" alt="ETA Laboratory">
+        <div class="sponsor-logo-label">ETA Laboratory</div>
       </div>
     </div>
   </div>
